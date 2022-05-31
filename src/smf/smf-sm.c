@@ -215,6 +215,7 @@ void smf_state_operational(ogs_fsm_t *s, smf_event_t *e)
             smf_gn_handle_echo_response(gtp_xact, &gtp1_message.echo_response);
             break;
         case OGS_GTP1_CREATE_PDP_CONTEXT_REQUEST_TYPE:
+            smf_metrics_inst_global_inc(SMF_METR_GLOB_CTR_RX_CREATEPDPCTXREQ);
             if (gtp1_message.h.teid == 0) {
                 ogs_expect(!sess);
                 sess = smf_sess_add_by_gtp1_message(&gtp1_message);

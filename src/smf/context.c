@@ -2864,12 +2864,14 @@ void smf_pf_precedence_pool_final(smf_sess_t *sess)
 
 static void stats_add_smf_session(void)
 {
+    smf_metrics_inst_global_inc(SMF_METR_GLOB_GAUGE_PDPCTX_ACTIVE);
     num_of_smf_sess = num_of_smf_sess + 1;
     ogs_info("[Added] Number of SMF-Sessions is now %d", num_of_smf_sess);
 }
 
 static void stats_remove_smf_session(void)
 {
+    smf_metrics_inst_global_dec(SMF_METR_GLOB_GAUGE_PDPCTX_ACTIVE);
     num_of_smf_sess = num_of_smf_sess - 1;
     ogs_info("[Removed] Number of SMF-Sessions is now %d", num_of_smf_sess);
 }

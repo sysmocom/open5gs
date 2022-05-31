@@ -69,7 +69,7 @@ uint8_t smf_gn_handle_create_pdp_context_request(
     ogs_assert(xact);
     ogs_assert(req);
 
-    ogs_debug("Create PDP Context Request");
+    ogs_debug("Create PDP Context Request");;
 
     cause_value = OGS_GTP1_CAUSE_REQUEST_ACCEPTED;
 
