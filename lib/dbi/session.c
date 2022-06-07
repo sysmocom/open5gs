@@ -46,6 +46,8 @@ int ogs_dbi_session_data(char *supi, ogs_s_nssai_t *s_nssai, char *dnn,
     ogs_assert(dnn);
     ogs_assert(session_data);
 
+    return rv;
+
     memset(&zero_data, 0, sizeof(zero_data));
 
     /* session_data should be initialized to zero */
