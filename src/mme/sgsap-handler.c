@@ -474,7 +474,8 @@ void sgsap_handle_alert_request(mme_vlr_t *vlr, ogs_pkbuf_t *pkbuf)
        goto alert_reject;
     }
 
-    /* TODO: Set NEAF flag in UE */
+    /* Set UE's NEAF flag: */
+    mme_ue->sgsap.neaf = true;
 
     ogs_warn("[SGSAP] Tx ALERT-ACK");
 

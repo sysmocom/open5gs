@@ -145,6 +145,14 @@ void emm_state_registered(ogs_fsm_t *s, mme_event_t *e)
 
     switch (e->id) {
     case OGS_FSM_ENTRY_SIG:
+        if (mme_ue->sgsap.neaf) {
+            /* FIXME: this is wrong, since it should only be triggered during
+            EPS services (skipped during non-EPS services which involve
+            SGsAP/VLR)*/
+            ogs_assert(OGS_OK ==
+                sgsap_send_ue_activity_indication(mme_ue));
+            mme_ue->sgsap.neaf = false;
+        }
         break;
     case OGS_FSM_EXIT_SIG:
         break;
